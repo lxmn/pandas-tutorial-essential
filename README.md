@@ -12,11 +12,12 @@ This is tutorial repository about pandas.
 
 ##Contant
 
-1. Add column
+1. [Add column] (#add-column)
 2. Add or create new column and add some other column data
 3. Rename specific column name
 4. Drop column
 5. Drop column based on specific
+6. [Group by partial values in column](#group-by-partial-values-in-column)
 6. split dataframe into multiple dataframe by no of rows
 
 -----------------------
@@ -25,11 +26,11 @@ This is tutorial repository about pandas.
 ```import pandas as pd```
 
 
-###1. Add column
+### Add column
 ```df["new_column"] = ""```
 
 
-###2. Add or create new column and add some manuplated data from other column
+### Add or create new column and add some manuplated data from other column
 
 ```df["domain_name"] = df["email_id"].apply(lambda x: x.split("@")[-1])```
 
