@@ -12,7 +12,7 @@ This is tutorial repository about pandas.
 
 ##Contant
 
-1. [Add column] (#add-column)
+1. [Add column](#add-column)
 2. Add or create new column and add some other column data
 3. Rename specific column name
 4. Drop column
