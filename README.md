@@ -4,21 +4,22 @@ This is tutorial repository about pandas.
 
 [Go to Real Cool Heading section](#real-cool-heading)
 
-###Task list
+### Task list
 
 - [x] Information
 - [ ] Content
 
 
-##Contant
+## Content
 
 1. [Add column](#add-column)
-2. Add or create new column and add some other column data
-3. Rename specific column name
-4. Drop column
-5. Drop column based on specific
+2. [Add or create new column and add some other column data](#add-or-create-new-column-and-add-some-manuplated-data-from-other-column)
+3. [Update column data based on other column conditions](#update-column-data-based-on-other-column-conditons)
+3. [Rename specific column name](#rename-specific-column-name)
+4. [Drop column](#drop-column)
+5. [Drop column based on specific condition](#drop-records-based-on-column-conditons)
 6. [Group by partial values in column](#group-by-partial-values-in-column)
-6. split dataframe into multiple dataframe by no of rows
+6. [Split dataframe into multiple dataframe by no of rows](#split-dataframe-into-multiple-dataframe-by-no-of-rows)
 
 -----------------------
 
@@ -30,11 +31,11 @@ This is tutorial repository about pandas.
 ```df["new_column"] = ""```
 
 
-### Add or create new column and add some manuplated data from other column
+### Add or create new column and add some manipulated data from other column
 
 ```df["domain_name"] = df["email_id"].apply(lambda x: x.split("@")[-1])```
 
-### Update column data based on other column conditons
+### Update column data based on other column conditions
 
 ```
 import pandas
@@ -63,7 +64,7 @@ df.rename(columns={'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace=True
 ```del df["column_name"]```
 
 
-### Drop records based on column conditons
+### Drop records based on column conditions
 
 ```
 df = pd.DataFrame({"col_1": (0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0),
@@ -107,8 +108,7 @@ df = df.groupby(df.Name.str[0:8])
 
 ```
 
-### Split dataframe into mulitple sheet based on record count
-
+### Split dataframe into multiple dataframe based on rows count
 ```
 df_new1, df_new2 = df[:10, :], df[10:, :] if len(df) > 10 else df, None
 ```
