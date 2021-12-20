@@ -20,6 +20,9 @@ This is tutorial repository about pandas.
 5. [Drop column based on specific condition](#drop-records-based-on-column-conditons)
 6. [Group by partial values in column](#group-by-partial-values-in-column)
 6. [Split dataframe into multiple dataframe by no of rows](#split-dataframe-into-multiple-dataframe-by-no-of-rows)
+7. [Check if string is in a pandas dataframe](#Check if string is in a pandas dataframe)
+8. [Strip / trim all strings of a dataframe](#Strip / trim all strings of a dataframe)
+9. [How to replace substring in all dataframe by using regex](#How to replace substring in all dataframe by using regex)
 
 -----------------------
 
@@ -113,6 +116,50 @@ df = df.groupby(df.Name.str[0:8])
 df_new1, df_new2 = df[:10, :], df[10:, :] if len(df) > 10 else df, None
 ```
 
+### Check if string is in a pandas dataframe
+
+```
+mel_count=a['Names'].str.contains('Mel').sum()
+if mel_count>0:
+    print ("There are {m} Mels".format(m=mel_count))
+
+Or any(), if you don't care how many records match your query
+
+if a['Names'].str.contains('Mel').any():
+    print ("Mel is there")
+```
+
+### Strip / trim all strings of a dataframe
+
+```
+You can use DataFrame.select_dtypes to select string columns and then apply function str.strip.
+
+Notice: Values cannot be types like dicts or lists, because their dtypes is object.
+
+df_obj = df.select_dtypes(['object'])
+print (df_obj)
+0    a  
+1    c  
+
+df[df_obj.columns] = df_obj.apply(lambda x: x.str.strip())
+print (df)
+
+   0   1
+0  a  10
+1  c   5
+```
+
+
+### How to replace substring in all dataframe by using regex
+
+```
+# Cleaning logic by using regualar expression  
+
+df = df.replace(to_replace=r'-1', value='', regex=True)
+df = df.replace(to_replace=r'^-', value='', regex=True)
+df = df.replace(to_replace=r'#\w+\s*', value='', regex=True)
+
+```
 
 # Real Cool Heading
 
