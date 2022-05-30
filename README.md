@@ -23,6 +23,7 @@ This is tutorial repository about pandas.
 7. [Check if string is in a pandas dataframe](#Check if string is in a pandas dataframe)
 8. [Strip / trim all strings of a dataframe](#Strip / trim all strings of a dataframe)
 9. [How to replace substring in all dataframe by using regex](#How to replace substring in all dataframe by using regex)
+10. [How To Convert Two Columns from Pandas Dataframe to a Dictionary](#https://cmdlinetips.com/2021/04/convert-two-column-values-from-pandas-dataframe-to-a-dictionary)
 
 -----------------------
 
@@ -158,6 +159,17 @@ print (df)
 df = df.replace(to_replace=r'-1', value='', regex=True)
 df = df.replace(to_replace=r'^-', value='', regex=True)
 df = df.replace(to_replace=r'#\w+\s*', value='', regex=True)
+
+```
+
+### 10. How To Convert Two Columns from Pandas Dataframe to a Dictionary  (https://cmdlinetips.com/2021/04/convert-two-column-values-from-pandas-dataframe-to-a-dictionary)
+
+```
+1st  Method 
+dict(zip(df.state, df.name))
+
+2nd Method
+pd.Series(df.name.values,index=df.state).to_dict()
 
 ```
 
