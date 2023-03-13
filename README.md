@@ -24,6 +24,7 @@ This is tutorial repository about pandas.
 8. [Strip / trim all strings of a dataframe](#Strip / trim all strings of a dataframe)
 9. [How to replace substring in all dataframe by using regex](#How to replace substring in all dataframe by using regex)
 10. [How To Convert Two Columns from Pandas Dataframe to a Dictionary](#https://cmdlinetips.com/2021/04/convert-two-column-values-from-pandas-dataframe-to-a-dictionary)
+11. [Replace column values based on another dataframe]()
 
 -----------------------
 
@@ -192,6 +193,26 @@ dict(zip(df.state, df.name))
 pd.Series(df.name.values,index=df.state).to_dict()
 
 ```
+
+### 11. Replace column values based on another dataframe
+
+```
+Way 1:
+
+df1 = df1.merge(df2,on='Name',how="left")
+df1['Nonprofit_y'] = df1['Nonprofit_y'].fillna(df1['Nonprofit_x'])
+df1['Business_y'] = df1['Business_y'].fillna(df1['Business_x'])
+df1.drop(["Business_x","Nonprofit_x"],inplace=True,axis=1)
+df1.rename(columns={'Business_y':'Business','Nonprofit_y':'Nonprofit'},inplace=True)
+
+Way 2:
+
+df1 = df1.set_index('Name')
+df2 = df2.set_index('Name')
+df1.update(df2)
+df1.reset_index(inplace=True)
+```
+
 
 
 # Real Cool Heading
