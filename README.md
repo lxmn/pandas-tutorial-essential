@@ -197,6 +197,16 @@ pd.Series(df.name.values,index=df.state).to_dict()
 ### 11. Replace column values based on another dataframe (https://stackoverflow.com/questions/24768657/replace-column-values-based-on-another-dataframe-python-pandas-better-way)
 
 ```
+df1 = pd.DataFrame([["X",1,1,0],
+              ["Y",2,2,2],
+              ["Z",3,3,3],
+              ["Y",4,4,4]],columns=["Name","Nonprofit","Business", "Education"])    
+df2 = pd.DataFrame([["Y",11,11],
+              ["Z",12,12],
+              ['U',13,13]],columns=["Name","Nonprofit", "Education"])
+```
+
+```
 Way 1:
 
 df1 = df1.merge(df2,on='Name',how="left")
