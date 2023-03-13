@@ -194,7 +194,7 @@ pd.Series(df.name.values,index=df.state).to_dict()
 
 ```
 
-### 11. Replace column values based on another dataframe
+### 11. Replace column values based on another dataframe (https://stackoverflow.com/questions/24768657/replace-column-values-based-on-another-dataframe-python-pandas-better-way)
 
 ```
 Way 1:
