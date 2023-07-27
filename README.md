@@ -14,7 +14,8 @@ This is tutorial repository about pandas.
 
 1. [Add column](#add-column)
 2. [Add or create new column and add some other column data](#add-or-create-new-column-and-add-some-manuplated-data-from-other-column)
-3. [Update column data based on other column conditions](#update-column-data-based-on-other-column-conditons)
+3. Add auto incremted column 
+4. [Update column data based on other column conditions](#update-column-data-based-on-other-column-conditons)
 3. [Rename specific column name](#rename-specific-column-name)
 4. [Drop column](#drop-column)
 5. [Drop column based on specific condition](#drop-records-based-on-column-conditons)
@@ -59,6 +60,11 @@ result = pd.merge(left, right, on="key")
 ### Add or create new column and add some manipulated data from other column
 
 ```df["domain_name"] = df["email_id"].apply(lambda x: x.split("@")[-1])```
+
+### Add auto incremented column
+```
+df['New_ID'] = range(880, 880+len(df))
+```
 
 ### Update column data based on other column conditions
 
